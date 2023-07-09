@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background"
+    android:orientation="vertical">
+
+    <TextView
+        android:paddingHorizontal="24dp"
+        android:gravity="center_vertical"
+        android:drawablePadding="16dp"
+        android:id="@+id/tvNew"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:paddingVertical="12dp"
+        android:text="@string/move_to_new"/>
+
+    <TextView
+        android:paddingHorizontal="24dp"
+        android:gravity="center_vertical"
+        android:drawablePadding="16dp"
+        android:id="@+id/tvInProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:paddingVertical="12dp"
+        android:text="@string/move_to_progress"/>
+
+    <TextView
+        android:paddingHorizontal="24dp"
+        android:gravity="center_vertical"
+        android:drawablePadding="16dp"
+        android:id="@+id/tvInReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:paddingVertical="12dp"
+        android:text="@string/move_to_review"/>
+
+    <TextView
+        android:paddingHorizontal="24dp"
+        android:gravity="center_vertical"
+        android:drawablePadding="16dp"
+        android:id="@+id/tvDone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:paddingVertical="12dp"
+        android:text="@string/move_to_done"/>
+
+</LinearLayout>

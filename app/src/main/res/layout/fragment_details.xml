@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background"
+    android:orientation="vertical"
+    tools:context=".presentation.mainflow.main.details.DetailsFragment">
+
+    <TextView
+        android:id="@+id/tvTaskProject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="12dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTaskName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_task"
+        android:drawablePadding="16dp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="12dp"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <TextView
+        android:paddingHorizontal="24dp"
+        android:gravity="center_vertical"
+        android:drawablePadding="16dp"
+        android:id="@+id/tvStartDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:paddingVertical="12dp"
+        android:drawableStart="@drawable/ic_time"/>
+
+    <TextView
+        android:paddingHorizontal="24dp"
+        android:gravity="center_vertical"
+        android:drawablePadding="16dp"
+        android:id="@+id/tvEndDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:paddingVertical="12dp"
+        android:drawableStart="@drawable/ic_time"/>
+
+    <TextView
+        android:paddingHorizontal="24dp"
+        android:gravity="center_vertical"
+        android:drawablePadding="16dp"
+        android:id="@+id/tvPriority"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:paddingVertical="12dp"
+        android:drawableStart="@drawable/ic_priority"/>
+
+    <TextView
+        android:paddingHorizontal="24dp"
+        android:gravity="center_vertical"
+        android:drawablePadding="16dp"
+        android:id="@+id/tvStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:paddingVertical="12dp"
+        android:drawableStart="@drawable/ic_status"/>
+
+</LinearLayout>

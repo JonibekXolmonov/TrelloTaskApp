@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Trello Task App</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="str_login">email</string>
+    <string name="str_password">password</string>
+    <string name="str_enter">Login</string>
+    <string name="str_my_tasks">My tasks</string>
+    <string name="task_image">task image</string>
+    <string name="str_new">new</string>
+    <string name="str_add_card">+ Add card</string>
+    <string name="move_to_new">Move to new</string>
+    <string name="move_to_progress">Move to progress</string>
+    <string name="move_to_review">Move to review</string>
+    <string name="move_to_done">Move to done</string>
+</resources>
