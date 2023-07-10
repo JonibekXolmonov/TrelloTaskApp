@@ -8,51 +8,55 @@
     android:orientation="vertical">
 
     <TextView
-        android:paddingHorizontal="24dp"
-        android:gravity="center_vertical"
-        android:drawablePadding="16dp"
         android:id="@+id/tvNew"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="14sp"
+        android:drawablePadding="16dp"
+        android:foreground="@drawable/clickable_ripple_layout"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
         android:paddingVertical="12dp"
-        android:text="@string/move_to_new"/>
+        android:text="@string/move_to_new"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
     <TextView
-        android:paddingHorizontal="24dp"
-        android:gravity="center_vertical"
-        android:drawablePadding="16dp"
         android:id="@+id/tvInProgress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="14sp"
+        android:drawablePadding="16dp"
+        android:foreground="@drawable/clickable_ripple_layout"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
         android:paddingVertical="12dp"
-        android:text="@string/move_to_progress"/>
+        android:text="@string/move_to_progress"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
     <TextView
-        android:paddingHorizontal="24dp"
-        android:gravity="center_vertical"
-        android:drawablePadding="16dp"
         android:id="@+id/tvInReview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="14sp"
+        android:drawablePadding="16dp"
+        android:foreground="@drawable/clickable_ripple_layout"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
         android:paddingVertical="12dp"
-        android:text="@string/move_to_review"/>
+        android:text="@string/move_to_review"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
     <TextView
-        android:paddingHorizontal="24dp"
-        android:gravity="center_vertical"
-        android:drawablePadding="16dp"
         android:id="@+id/tvDone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="14sp"
+        android:drawablePadding="16dp"
+        android:foreground="@drawable/clickable_ripple_layout"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
         android:paddingVertical="12dp"
-        android:text="@string/move_to_done"/>
+        android:text="@string/move_to_done"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
 </LinearLayout>

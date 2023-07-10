@@ -91,7 +91,7 @@ class DetailsFragment : Fragment() {
             tvPriority.text = "Priority: " + taskModel.priority
             setStatus()
 
-            tvStatus.setOnClickListener {
+            status.setOnClickListener {
                 openStatusChangeDialog()
             }
         }

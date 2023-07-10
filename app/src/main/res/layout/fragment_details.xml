@@ -12,6 +12,7 @@
         android:id="@+id/tvTaskProject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:foreground="@drawable/clickable_ripple_layout"
         android:paddingHorizontal="24dp"
         android:paddingVertical="12dp"
         android:textColor="@color/black"
@@ -26,6 +27,7 @@
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/ic_task"
         android:drawablePadding="16dp"
+        android:foreground="@drawable/clickable_ripple_layout"
         android:gravity="center_vertical"
         android:paddingHorizontal="24dp"
         android:paddingVertical="12dp"
@@ -33,51 +35,74 @@
         android:textSize="14sp" />
 
     <TextView
-        android:paddingHorizontal="24dp"
-        android:gravity="center_vertical"
-        android:drawablePadding="16dp"
         android:id="@+id/tvStartDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="14sp"
+        android:drawableStart="@drawable/ic_time"
+        android:drawablePadding="16dp"
+        android:foreground="@drawable/clickable_ripple_layout"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
         android:paddingVertical="12dp"
-        android:drawableStart="@drawable/ic_time"/>
+        android:textColor="@color/black"
+        android:textSize="14sp" />
 
     <TextView
-        android:paddingHorizontal="24dp"
-        android:gravity="center_vertical"
-        android:drawablePadding="16dp"
         android:id="@+id/tvEndDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="14sp"
+        android:drawableStart="@drawable/ic_time"
+        android:drawablePadding="16dp"
+        android:foreground="@drawable/clickable_ripple_layout"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
         android:paddingVertical="12dp"
-        android:drawableStart="@drawable/ic_time"/>
+        android:textColor="@color/black"
+        android:textSize="14sp" />
 
     <TextView
-        android:paddingHorizontal="24dp"
-        android:gravity="center_vertical"
-        android:drawablePadding="16dp"
         android:id="@+id/tvPriority"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:paddingVertical="12dp"
-        android:drawableStart="@drawable/ic_priority"/>
-
-    <TextView
-        android:paddingHorizontal="24dp"
-        android:gravity="center_vertical"
+        android:drawableStart="@drawable/ic_priority"
         android:drawablePadding="16dp"
-        android:id="@+id/tvStatus"
+        android:foreground="@drawable/clickable_ripple_layout"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="12dp"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:id="@+id/status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:paddingVertical="12dp"
-        android:drawableStart="@drawable/ic_status"/>
+        android:foreground="@drawable/clickable_ripple_layout"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_status"
+            android:drawablePadding="16dp"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:paddingVertical="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/main_blue"
+            android:textStyle="bold"
+            android:paddingEnd="12dp"
+            android:textSize="14sp"
+            android:text="Click to change"/>
+
+    </LinearLayout>
 
 </LinearLayout>
