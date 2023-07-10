@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import uz.realsoft.task.R
 import uz.realsoft.task.common.UiStateObject
+import uz.realsoft.task.common.toast
 import uz.realsoft.task.databinding.FragmentAuthBinding
 
 @AndroidEntryPoint
@@ -49,9 +50,10 @@ class AuthFragment : Fragment() {
                         }
                         is UiStateObject.SUCCESS -> {
                             navigateToMainFragment()
+                            toast(msg = "Successfully logged in")
                         }
                         is UiStateObject.ERROR -> {
-
+                            toast(msg = state.message)
                         }
                     }
                 }

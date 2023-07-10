@@ -67,8 +67,10 @@ class TaskUseCaseImpl @Inject constructor(
         } else {
             try {
 
+                //get all tasks
                 val allTasks = this.invoke()
 
+                //we get max index of the same same status tasks and set to argument taskModel (maxIndex + 1) or 1
                 allTasks.onSuccess {
                     val sameStatusTasks = it.filter { it.status == getStatus(statusCode) }
                     val maxIndexedTask = sameStatusTasks.maxByOrNull { it.index }

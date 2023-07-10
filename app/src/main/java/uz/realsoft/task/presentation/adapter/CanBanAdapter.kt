@@ -1,6 +1,7 @@
 package uz.realsoft.task.presentation.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -24,6 +25,7 @@ import java.util.*
 class CanBanAdapter : ListAdapter<TaskModel, ViewHolder>(DiffUtil()) {
 
     lateinit var onTaskClick: (TaskModel) -> Unit
+    lateinit var onDrag: (TaskModel, TaskModel) -> Unit
     private var context: Context? = null
 
 
@@ -121,10 +123,12 @@ class CanBanAdapter : ListAdapter<TaskModel, ViewHolder>(DiffUtil()) {
                 holder.bind(currentList.filter { it.status == STATUS_NEW }.sortedBy { it.index })
             }
             is InProgressVH -> {
-                holder.bind(currentList.filter { it.status == STATUS_IN_PROGRESS }.sortedBy { it.index })
+                holder.bind(currentList.filter { it.status == STATUS_IN_PROGRESS }
+                    .sortedBy { it.index })
             }
             is InReviewVH -> {
-                holder.bind(currentList.filter { it.status == STATUS_IN_REVIEW }.sortedBy { it.index })
+                holder.bind(currentList.filter { it.status == STATUS_IN_REVIEW }
+                    .sortedBy { it.index })
 
             }
             is DoneVH -> {
@@ -147,6 +151,7 @@ class CanBanAdapter : ListAdapter<TaskModel, ViewHolder>(DiffUtil()) {
             }
         }
 
+        //dragging rv items
         val dividerItemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
         rvTask.addItemDecoration(dividerItemDecoration)
 
@@ -163,6 +168,14 @@ class CanBanAdapter : ListAdapter<TaskModel, ViewHolder>(DiffUtil()) {
                     val fromPosition = viewHolder.adapterPosition
                     val toPosition = target.adapterPosition
                     Collections.swap(tasks, fromPosition, toPosition)
+
+                    //exchange index
+                    val fromPositionIndex = tasks[fromPosition].index
+                    tasks[fromPosition].index = tasks[toPosition].index
+                    tasks[toPosition].index = fromPositionIndex
+
+                    onDrag(tasks[fromPosition], tasks[toPosition])
+
                     recyclerView.adapter!!.notifyItemMoved(fromPosition, toPosition)
                     return false
                 }

@@ -6,6 +6,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import android.window.OnBackInvokedDispatcher
+import androidx.activity.OnBackPressedCallback
+import androidx.core.os.BuildCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -22,7 +26,9 @@ import kotlinx.coroutines.launch
 import uz.realsoft.task.R
 import uz.realsoft.task.common.Constants.TASK_MODEL
 import uz.realsoft.task.common.UiStateList
+import uz.realsoft.task.common.UiStateObject
 import uz.realsoft.task.common.provideImage
+import uz.realsoft.task.common.toast
 import uz.realsoft.task.data.model.model.TaskModel
 import uz.realsoft.task.databinding.FragmentTasksBinding
 import uz.realsoft.task.presentation.adapter.CanBanAdapter
@@ -53,6 +59,18 @@ class TasksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initViews()
         initObserver()
+        initUpdateObserver()
+        onBackPressed()
+    }
+
+    private fun onBackPressed() {
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this /* lifecycle owner */,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    requireActivity().finish()
+                }
+            })
     }
 
     private fun initObserver() {
@@ -68,7 +86,28 @@ class TasksFragment : Fragment() {
                             refreshAdapter(state.data)
                         }
                         is UiStateList.ERROR -> {
+                            toast(msg = state.message)
+                        }
+                    }
+                }
+            }
+        }
+    }
 
+    private fun initUpdateObserver() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.taskUpdateState.collectLatest { state ->
+                    when (state) {
+                        UiStateObject.EMPTY -> {}
+
+                        UiStateObject.LOADING -> {}
+
+                        is UiStateObject.SUCCESS -> {
+
+                        }
+                        is UiStateObject.ERROR -> {
+                            toast("Could not change index")
                         }
                     }
                 }
@@ -89,6 +128,11 @@ class TasksFragment : Fragment() {
                 R.id.action_tasksFragment_to_detailsFragment,
                 bundleOf(TASK_MODEL to taskModel)
             )
+        }
+
+        adapter.onDrag = { fromTaskModel: TaskModel, toTaskModel: TaskModel ->
+            viewModel.updateTaskModel(fromTaskModel)
+            viewModel.updateTaskModel(toTaskModel)
         }
 
         val snapHelper: SnapHelper = PagerSnapHelper()

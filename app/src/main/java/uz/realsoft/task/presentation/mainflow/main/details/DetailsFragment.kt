@@ -20,6 +20,7 @@ import kotlinx.coroutines.launch
 import uz.realsoft.task.common.Constants.TASK_MODEL
 import uz.realsoft.task.common.UiStateList
 import uz.realsoft.task.common.UiStateObject
+import uz.realsoft.task.common.toast
 import uz.realsoft.task.data.model.model.TaskModel
 import uz.realsoft.task.databinding.FragmentDetailsBinding
 
@@ -69,14 +70,10 @@ class DetailsFragment : Fragment() {
                         is UiStateObject.SUCCESS -> {
                             taskModel = state.data
                             setStatus()
-                            Toast.makeText(
-                                requireContext(),
-                                "Updated successfully",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            toast("Updated successfully")
                         }
                         is UiStateObject.ERROR -> {
-                            Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
+                            toast(state.message)
                         }
                     }
                 }

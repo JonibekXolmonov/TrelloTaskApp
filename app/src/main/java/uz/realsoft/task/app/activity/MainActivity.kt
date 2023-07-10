@@ -9,12 +9,17 @@ import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
 import dagger.hilt.android.AndroidEntryPoint
 import uz.realsoft.task.R
+import uz.realsoft.task.common.SharedPref
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
     lateinit var navGraph: NavGraph
+
+    @Inject
+    lateinit var sharedPref: SharedPref
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,14 +34,16 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
 
+
         if (userLoggedIn()) {
-            navGraph.setStartDestination(R.navigation.main_graph)
+            navGraph.setStartDestination(R.id.mainFlowFragment)
         } else {
-            navGraph.setStartDestination(R.navigation.auth_graph)
+            navGraph.setStartDestination(R.id.authFragment)
         }
+        navController.graph = navGraph
     }
 
     private fun userLoggedIn(): Boolean {
-        return false
+        return sharedPref.token.isNotBlank()
     }
 }
