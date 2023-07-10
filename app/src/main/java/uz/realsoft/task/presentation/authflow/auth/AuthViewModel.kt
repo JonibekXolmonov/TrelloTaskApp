@@ -28,15 +28,15 @@ class AuthViewModel @Inject constructor(
 
             viewModelScope.launch {
                 val request = LoginRequest(login = "jhonhanks@gmail.com", password = "aA1234567")
-                val user =
-                    loginUseCase(request)
-                        .getOrElse {
-                            _loginState.value = UiStateObject.ERROR(
-                                message = it.localizedMessage ?: "Something went wrong"
-                            )
-                        }
-                _loginState.value = UiStateObject.SUCCESS(true)
-
+                loginUseCase(request)
+                    .onSuccess {
+                        _loginState.value = UiStateObject.SUCCESS(true)
+                    }
+                    .onFailure {
+                        _loginState.value = UiStateObject.ERROR(
+                            message = it.localizedMessage ?: "Something went wrong"
+                        )
+                    }
                 return@launch
             }
         }
